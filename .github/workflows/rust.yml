@@ -1,0 +1,16 @@
+name: verify
+
+on:
+  push:
+    branches: [my-solutions]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install
+        run: cargo install --force --path .
+      - name: Verify
+        run: rustlings verify
